@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Truth Table</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="uiKalkulator">
+        <div id="kotak1" class="kotak">
+            <label for="inputSoal">input&nbsp;&nbsp;&nbsp;: </label>
+            <input id="inputSoal" maxlength="20" placeholder="Masukkan Soal">
+        </div>
+
+        <div id="kotak2" class="kotak">
+            <label for="outputSoal">output : </label>
+            <input id="outputSoal" placeholder="Nilai Kebenaran" readonly>
+
+        </div>
+<div id="outputsTable">
+
+    <div id="messages">
+        <p id="tessMessage">p</p>
+    </div>
+
+    <div id="tabelKebenaran">
+        <h1 id="tessTable">PETABEL</h1>
+        <!-- INSERT DARI JS DIV UNTUK TABEL-NYA
+        ROW   : Jumlah 2^berapa-Variabel + 1 -> [ Misal abc, maka ada 2^3 kemungkinan (2 untuk true/false) ] 
+        COLUMN: JUMLAH VAR + BANYAK OPERATOR, piq -> ada 3 COLUMN -> untuk p, untuk q, untuk hasil piq -->
+        <table id="tableHasil"> 
+            <tr id="headRow">
+                <th id="headColm1">misal P</th>
+                <th id="headColm2">misal Q</th>
+                <th id="headColm3">misal PiQ</th>
+                <th id="headColm3">misal (PiQ)oQ</th>
+                <th id="headColm3">misal (PiQ)oQ</th>
+            </tr>
+
+            <tr id="row1">
+                <td id="colm11">P True</td>
+                <td id="colm12">Q True</td>
+                <td id="colm13">PiQ True</td>
+                <td id="colm14">(PiQ)0Q True</td>
+                <td id="colm14">(PiQ)0Q True</td>
+            </tr>
+            <tr id="row2">
+                <td id="colm21">P True</td>
+                <td id="colm22">Q False</td>
+                <td id="colm23">PiQ True</td>
+                <td id="colm24">(PiQ)0Q False</td>
+            </tr>
+            <tr id="row3">
+                <td id="colm31">P False</td>
+                <td id="colm32">Q True</td>
+                <td id="colm33">PiQ False</td>
+                <td id="colm34">(PiQ)0Q True</td>
+            </tr>
+            <tr id="row4">
+                <td id="colm41">P False</td>
+                <td id="colm42">Q False</td>
+                <td id="colm43">PiQ False</td>
+                <td id="colm44">(PiQ)0Q False</td>
+            </tr>
+        </table>
+    </div>
+
+</div>
+        <div id="buttons">
+            <button id="negasi" onclick="masukkanKeInput('n')"> n</button> <!-- negasi -->
+            <button id="konjungsi" onclick="masukkanKeInput('q')"> q</button> <!-- A ATAU q -> konjungsi (?) -->
+            <button id="disjungsi" onclick="masukkanKeInput('o')"> o</button> <!-- disjungsi (?) -->
+            <button id="implikasi" onclick="masukkanKeInput('i')"> i</button> <!-- biimplikasi -->
+            <button id="biimplikasi" onclick="masukkanKeInput('b')"> b</button> <!-- biimplikasi -->
+            <button id="hapusKiri" onclick="masukkanKeInput('hapus')"> &#x2190;</button>
+            <button id="clear" onclick="masukkanKeInput('clear')"> clr</button>
+            
+            <button id="submit" class="submit" onclick="hitungBenar()"> &crarr;</button>
+
+            <!-- APA INI ?? -->
+            <button id="trues"> t/1</button>
+            <button id="falses"> f/0</button>
+
+            <button id="varP" onclick="masukkanKeInput('P')"> P</button>
+            <button id="varQ" onclick="masukkanKeInput('Q')"> Q</button>
+            <button id="kurungBuka" onclick="masukkanKeInput('(')"> (</button>
+            <button id="kurungTutup" onclick="masukkanKeInput(')')"> )</button>
+        </div>
+    </div>
+
+
+    <!-- <div id="container_table">
+
+    </div> -->
+    <script src="index.js"></script>
+</body>
+
+</html>

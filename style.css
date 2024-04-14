@@ -1,0 +1,177 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    background-color: hsla(0, 3%, 22%, 0.5);
+}
+
+#uiKalkulator {
+    /* height: 97.4svh; */
+    width: 98.6svw;
+
+    /* border-width: 10px;
+    border-style: solid;
+    border-color: black; */
+
+    display: flex;
+    flex-direction: column;
+
+    /* justify-content: center; */
+    text-align: center;
+    align-items: center;
+}
+
+.kotak {
+    margin: 12px;
+}
+
+#inputSoal {
+    width: 20svw;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+#outputSoal {
+    width: 20svw;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+#buttons>button {
+    height: 50px;
+    width: 50px;
+    /* border-radius: 50%; */
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    margin: 1px;
+}
+
+#buttons {
+    display: grid;
+    grid-template-columns: repeat(8, 52px);
+}
+
+#hapusKiri {
+    background-color: hsla(0, 89%, 57%, 0.921);
+}
+
+#hapusKiri:hover {
+    background-color: hsla(0, 66%, 50%, 0.826);
+}
+
+#clear {
+    background-color: hsla(60, 89%, 57%, 0.921);
+}
+
+#clear:hover {
+    background-color: hsla(60, 66%, 50%, 0.719);
+}
+
+#submit {
+    background-color: hsla(84, 89%, 57%, 0.921);
+}
+
+#submit:hover {
+    background-color: hsla(84, 66%, 50%, 0.719);
+}
+
+#biimplikasi,
+#negasi,
+#disjungsi,
+#konjungsi,
+#implikasi,
+#varP,
+#varQ,
+#kurungBuka,
+#kurungTutup,
+#trues,
+#falses {
+    background-color: aliceblue;
+}
+
+#biimplikasi:hover,
+#negasi:hover,
+#disjungsi:hover,
+#konjungsi:hover,
+#implikasi:hover,
+#varP:hover,
+#varQ:hover,
+#kurungBuka:hover,
+#kurungTutup:hover,
+#trues:hover,
+#falses:hover {
+    background-color: hsla(208, 32%, 85%, 0.856);
+}
+
+#outputsTable {
+    width: 99%;
+    height: 99%;
+
+    display: flex;
+    flex-direction: row;
+    /* align-items: center; */
+    justify-content: space-between;
+    /* display: none; */
+
+}
+
+#messages {
+    background-color: red;
+    width: 11.5svw;
+    height: 78svh;    
+    margin: 10px;
+}
+
+#tabelKebenaran {
+    background-color: green;
+    width: 85svw;
+    height: 78svh;
+    overflow-x:auto;
+    margin: 10px;
+}
+table{
+    width: 97%;
+    margin: 12px;
+
+    border-collapse: collapse;
+    border: 2px;
+    border-color: wheat;
+    border-style: solid;
+    vertical-align:middle;
+    text-align: center;
+
+    justify-content: center;
+    align-items: center;
+}
+tr{
+ border: 2px solid;
+ border-color: blueviolet;
+ vertical-align:middle;
+text-align: center;
+}
+
+th{
+    border: 2px solid;
+    border-color: blueviolet;
+    vertical-align:middle;
+   text-align: center;
+   padding: 10px;
+}
+
+td{
+    border: 2px solid;
+    border-color: blueviolet;
+    vertical-align:middle;
+   text-align: center;
+   padding: 3px;
+}

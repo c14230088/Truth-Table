@@ -32,44 +32,14 @@
         ROW   : Jumlah 2^berapa-Variabel + 1 -> [ Misal abc, maka ada 2^3 kemungkinan (2 untuk true/false) ] 
         COLUMN: JUMLAH VAR + BANYAK OPERATOR, piq -> ada 3 COLUMN -> untuk p, untuk q, untuk hasil piq -->
         <table id="tableHasil"> 
-            <tr id="headRow">
-                <th id="headColm1">misal P</th>
-                <th id="headColm2">misal Q</th>
-                <th id="headColm3">misal PiQ</th>
-                <th id="headColm3">misal (PiQ)oQ</th>
-            </tr>
-
-            <tr id="row1">
-                <td id="colm11">P True</td>
-                <td id="colm12">Q True</td>
-                <td id="colm13">PiQ True</td>
-                <td id="colm14">(PiQ)0Q True</td>
-            </tr>
-            <tr id="row2">
-                <td id="colm21">P True</td>
-                <td id="colm22">Q False</td>
-                <td id="colm23">PiQ True</td>
-                <td id="colm24">(PiQ)0Q False</td>
-            </tr>
-            <tr id="row3">
-                <td id="colm31">P False</td>
-                <td id="colm32">Q True</td>
-                <td id="colm33">PiQ False</td>
-                <td id="colm34">(PiQ)0Q True</td>
-            </tr>
-            <tr id="row4">
-                <td id="colm41">P False</td>
-                <td id="colm42">Q False</td>
-                <td id="colm43">PiQ False</td>
-                <td id="colm44">(PiQ)0Q False</td>
-            </tr>
         </table>
+        
     </div>
 
 </div>
         <div id="buttons">
             <button id="negasi" onclick="masukkanKeInput('n')"> n</button> <!-- negasi -->
-            <button id="konjungsi" onclick="masukkanKeInput('q')"> q</button> <!-- A ATAU q -> konjungsi (?) -->
+            <button id="konjungsi" onclick="masukkanKeInput('q')"> a</button> <!-- a ATAU q -> konjungsi (?) -->
             <button id="disjungsi" onclick="masukkanKeInput('o')"> o</button> <!-- disjungsi (?) -->
             <button id="implikasi" onclick="masukkanKeInput('i')"> i</button> <!-- biimplikasi -->
             <button id="biimplikasi" onclick="masukkanKeInput('b')"> b</button> <!-- biimplikasi -->

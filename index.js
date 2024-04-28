@@ -273,14 +273,20 @@ function tvcomb(n) {
 }
 
 // ([Char], [Bool]) -> Assignment
-// Takes an array of n Chars and an array of n Bools and returns a assignment that
+// Takes an array of n Chars and an array of n Bools and returns an assignment that
 // assigns the nth Bool to the nth Char.
 function mkAss(s,b) {
-	var a = new Object();
-	for(var i=0;i<s.length;i++) {
-		a[s[i]] = b[i];
-	}
-	return a;
+    var a = new Object();
+    for(var i=0;i<s.length;i++) {
+        if (s[i] === 'T' || s[i] === 't') {
+            a[s[i]] = true; // Assign 'T' to true
+        } else if (s[i] === 'F'||s[i] === 'f') {
+            a[s[i]] = false; // Assign 'F' to false
+        } else {
+            a[s[i]] = b[i];
+        }
+    }
+    return a;
 }
 
 // Tree -> Array
@@ -389,7 +395,7 @@ function parse(s) {
 // Determines if s is an atomic wff
 function isA(s) {
 	if(s.length!=1) {return false;}
-	var pr = 'PQ';
+	var pr = 'PQpqtfTF';
 	return pr.indexOf(s)>=0;
 }
 

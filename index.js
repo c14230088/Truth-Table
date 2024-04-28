@@ -21,6 +21,18 @@ function masukkanKeInput(input) {
     }
 };
 
+function displayMode(){
+	if(document.getElementById('display').value === 'false'){
+		document.getElementById('display').value = 'true'
+	}else{document.getElementById('display').value = 'false'}
+	construct();
+}
+function trueMode(){
+	if(document.getElementById('trues').value ==='tf'){
+		document.getElementById('trues').value ='oz'
+	}else{document.getElementById('trues').value ='tf'}
+	construct();
+}
 /*************************************************************************************/
 
 function htmlchar(c,tv,cs) {
@@ -85,13 +97,35 @@ function construct() {
 	if(trees.filter(function(a) {return a.length==0;}).length>0) { // checks if any formulas are still malformed
 		return alert("One of the formulas you entered is not well formed");
 	}
-    var tv = `tf` //bisa ganti oz -> untuk nyatakan format 1/0 PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP
-    var cs = `cs1`
+    var tv = document.getElementById(`trues`).value //bisa ganti oz -> untuk nyatakan format 1/0 PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP
+    var cs = `cs1`;
+	var displayAllorAnswer = document.getElementById('display').value;
+	var checkDis = false;
+	if(displayAllorAnswer==='false'){
+		checkDis = false;
+	}else {checkDis=true;}
 	var table = mkTable(formulas,trees);
 
-		var htmltable = htmlTable(table,trees,true, tv,cs);
+	// var displayAllorAnswer, jika true tampil hasil saja, jika false tampil semua
+		var htmltable = htmlTable(table,trees,checkDis, tv,cs);
 		document.getElementById('tableHasil').innerHTML = htmltable;
+		
+		var mcCells = document.querySelectorAll('td.mc');
+		var mcValues = Array.from(mcCells).map(cell => cell.textContent.trim() === 'T'); // Extract truth values from mc cells
+		var allTrueAlt = mcValues.every(value => value); // Check if all values in mc cells are true
+		var allFalseAlt = mcValues.every(value => !value); // Check if all values in mc cells are false
 	
+		// Determine the result
+		if (allTrueAlt) {
+			document.getElementById("tessMessage").textContent = "Tautology";
+		} else if (allFalseAlt) {
+			document.getElementById("tessMessage").textContent = "Contradiction";
+		} else {
+			document.getElementById("tessMessage").textContent = "Contingency";
+		}
+	
+		console.log(document.getElementById('display').value)
+		console.log(document.getElementById('trues').value)
 }
 
 // (Table,[Tree],Boolean) -> String
@@ -130,9 +164,9 @@ function htmlTable(table,trees,flag,tv,cs) {
 		for(var i=0;i<tbl.length;i++) { // i = table segment
 			for(var j=0;j<tbl[i][r].length;j++) { // r = row, j = cell
 				if(mcs[i-1]==j) {
-					rw += '<td class="mc">'+htmlchar(tbl[i][r][j],tv,cs)+'</td>';
-				} else if(flag && i>0) {
-					rw += '<td></td>'
+					rw += '<td class="mc">'+htmlchar(tbl[i][r][j],tv,cs)+'</td>'; //jawaban Akhir
+				} else if(flag && i>0) { //if checkDis === true kerja ini
+					rw += '<td></td>' //buat td kosong dari yang displayMode
 				} else {
 					rw += '<td>'+htmlchar(tbl[i][r][j],tv,cs)+'</td>';
 				}

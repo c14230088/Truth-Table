@@ -55,10 +55,18 @@ body {
     cursor: pointer;
     margin: 1px;
 }
-
+.mc{
+    color: red;
+    background-color: blue;
+}
+.dv{
+    color: blue;
+    background-color: red;
+}
 #buttons {
     display: grid;
-    grid-template-columns: repeat(8, 52px);
+    grid-template-columns: repeat(7, 52px);
+    margin-bottom: 1vh;
 }
 
 #hapusKiri {
@@ -95,7 +103,7 @@ body {
 #kurungBuka,
 #kurungTutup,
 #trues,
-#falses {
+#display{
     background-color: aliceblue;
 }
 
@@ -109,13 +117,13 @@ body {
 #kurungBuka:hover,
 #kurungTutup:hover,
 #trues:hover,
-#falses:hover {
+#display:hover {
     background-color: hsla(208, 32%, 85%, 0.856);
 }
 
 #outputsTable {
-    width: 99%;
-    height: 99%;
+    width: 90vw;
+    height: 87vh;
 
     display: flex;
     flex-direction: row;
@@ -127,17 +135,17 @@ body {
 
 #messages {
     background-color: red;
-    width: 11.5svw;
-    height: 78svh;    
-    margin: 10px;
+    width: 15vw;
+    height: 78vh;    
+    margin: 6px;
 }
 
 #tabelKebenaran {
     background-color: green;
-    width: 85svw;
+    width: 82svw;
     height: 78svh;
     overflow-x:auto;
-    margin: 10px;
+    margin: 6px;
 }
 table{
     width: 97%;

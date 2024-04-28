@@ -23,11 +23,12 @@
 <div id="outputsTable">
 
     <div id="messages">
-        <p id="tessMessage">p</p>
+        <h1 id="tessTable">Messages</h1>
+        <p id="tessMessage"></p>
     </div>
 
     <div id="tabelKebenaran">
-        <h1 id="tessTable">PETABEL</h1>
+        <h1 id="tessTable">Tabel Kebenaran</h1>
         <!-- INSERT DARI JS DIV UNTUK TABEL-NYA
         ROW   : Jumlah 2^berapa-Variabel + 1 -> [ Misal abc, maka ada 2^3 kemungkinan (2 untuk true/false) ] 
         COLUMN: JUMLAH VAR + BANYAK OPERATOR, piq -> ada 3 COLUMN -> untuk p, untuk q, untuk hasil piq -->
@@ -38,24 +39,23 @@
 
 </div>
         <div id="buttons">
+            <button id="clear" onclick="masukkanKeInput('clear')"> clr</button>
             <button id="negasi" onclick="masukkanKeInput('n')"> n</button> <!-- negasi -->
             <button id="konjungsi" onclick="masukkanKeInput('q')"> a</button> <!-- a ATAU q -> konjungsi (?) -->
             <button id="disjungsi" onclick="masukkanKeInput('o')"> o</button> <!-- disjungsi (?) -->
-            <button id="implikasi" onclick="masukkanKeInput('i')"> i</button> <!-- biimplikasi -->
+            <button id="implikasi" onclick="masukkanKeInput('i')"> i</button> <!-- implikasi -->
             <button id="biimplikasi" onclick="masukkanKeInput('b')"> b</button> <!-- biimplikasi -->
             <button id="hapusKiri" onclick="masukkanKeInput('hapus')"> &#x2190;</button>
-            <button id="clear" onclick="masukkanKeInput('clear')"> clr</button>
-            
-            <button id="submit" class="submit" onclick="construct()"> &crarr;</button>
 
-            <!-- APA INI ?? -->
-            <button id="trues"> t/1</button>
-            <button id="falses"> f/0</button>
+            <button id="trues" value="tf" onclick="trueMode()">t&#8594;1</button>
+            <button id="display" value="false" onclick="displayMode()">D</button>
 
             <button id="varP" onclick="masukkanKeInput('P')"> P</button>
             <button id="varQ" onclick="masukkanKeInput('Q')"> Q</button>
             <button id="kurungBuka" onclick="masukkanKeInput('(')"> (</button>
             <button id="kurungTutup" onclick="masukkanKeInput(')')"> )</button>
+            <button id="submit" class="submit" onclick="construct()"> &crarr;</button>
+
         </div>
     </div>
 

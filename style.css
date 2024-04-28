@@ -65,7 +65,7 @@ body {
 }
 #buttons {
     display: grid;
-    grid-template-columns: repeat(7, 52px);
+    grid-template-columns: repeat(8, 52px);
     margin-bottom: 1vh;
 }
 
@@ -92,6 +92,19 @@ body {
 #submit:hover {
     background-color: hsla(84, 66%, 50%, 0.719);
 }
+#display{
+    background-color: hsla(186, 90%, 58%, 0.921);
+}
+
+#display:hover{
+    background-color: hsla(186, 66%, 50%, 0.921);
+}
+#trues{
+    background-color: hsla(288, 91%, 56%, 0.921);
+}
+#trues:hover{
+    background-color: hsla(288, 66%, 50%, 0.921);
+}
 
 #biimplikasi,
 #negasi,
@@ -100,10 +113,10 @@ body {
 #implikasi,
 #varP,
 #varQ,
+#var1,
+#var0,
 #kurungBuka,
-#kurungTutup,
-#trues,
-#display{
+#kurungTutup{
     background-color: aliceblue;
 }
 
@@ -114,10 +127,10 @@ body {
 #implikasi:hover,
 #varP:hover,
 #varQ:hover,
+#var1:hover,
+#var0:hover,
 #kurungBuka:hover,
-#kurungTutup:hover,
-#trues:hover,
-#display:hover {
+#kurungTutup:hover{
     background-color: hsla(208, 32%, 85%, 0.856);
 }
 
@@ -125,7 +138,7 @@ body {
     width: 90vw;
     height: 87vh;
 
-    display: flex;
+    display: none;
     flex-direction: row;
     /* align-items: center; */
     justify-content: space-between;
@@ -182,4 +195,8 @@ td{
     vertical-align:middle;
    text-align: center;
    padding: 3px;
+}
+.empty-cell{
+    background-color: black;
+    color: white;
 }

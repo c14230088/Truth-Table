@@ -15,7 +15,7 @@ function masukkanKeInput(input) {
         ketikan.value = "";
     }
     else {
-        if(ketikan.value.length<20){
+        if(ketikan.value.length<30){
         ketikan.value += input;
         }
     }
@@ -124,8 +124,8 @@ function construct() {
 			document.getElementById("tessMessage").textContent = "Contingency";
 		}
 	
-		console.log(document.getElementById('display').value)
-		console.log(document.getElementById('trues').value)
+		document.getElementById("outputsTable").style.display = "flex";
+
 }
 
 // (Table,[Tree],Boolean) -> String

@@ -15,9 +15,7 @@ function masukkanKeInput(input) {
         ketikan.value = "";
     }
     else {
-        if(ketikan.value.length<30){
         ketikan.value += input;
-        }
     }
 };
 
@@ -82,7 +80,8 @@ function htmlchar(c,tv,cs) {
 // main construction function
 function construct() {
 	var formulas = document.getElementById('inputSoal').value.replace(/ /g,'');// remove whitespace
-	if(formulas=='') {return alert("You have to enter a formula.");};
+	if(formulas=='') {return alert("Ekspresi Logika Tidak Boleh Kosong");};
+	if(formulas.length<30){return alert("Formula Kurang dari 30 Characters");}
 	var r = badchar(formulas);
 	if(r>=0) {return alert("The string you entered contains the following unrecognized symbol: "+formulas[r]);};
 
@@ -95,7 +94,7 @@ function construct() {
 		}
 	}
 	if(trees.filter(function(a) {return a.length==0;}).length>0) { // checks if any formulas are still malformed
-		return alert("One of the formulas you entered is not well formed");
+		return alert("Syntax Error");
 	}
     var tv = document.getElementById(`trues`).value //bisa ganti oz -> untuk nyatakan format 1/0 PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP
     var cs = `cs1`;

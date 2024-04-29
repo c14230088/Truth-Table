@@ -13,6 +13,7 @@ function masukkanKeInput(input) {
 	}
 	else if (input == "clear") {
 		ketikan.value = "";
+		document.getElementById("outputsTable").style.display = "none";
 	}
 	else {
 		ketikan.value += input;
@@ -80,7 +81,9 @@ function htmlchar(c, tv, cs) {
 // main construction function
 function construct() {
 	var formulas = document.getElementById('inputSoal').value.replace(/ /g, '');// remove whitespace
-	if (formulas == '') { return alert("Ekspresi Logika Tidak Boleh Kosong"); };
+	if (formulas == '') { 
+		document.getElementById("outputsTable").style.display = "none";
+		return alert("Ekspresi Logika Tidak Boleh Kosong"); };
 	// if(formulas.length<30){return alert("Formula Kurang dari 30 Characters");}
 	var r = badchar(formulas);
 	if (r >= 0) { return alert("The string you entered contains the following unrecognized symbol: " + formulas[r]); };
@@ -108,20 +111,27 @@ function construct() {
 
 	// var displayAllorAnswer, jika true tampil hasil saja, jika false tampil semua
 	var htmltable = htmlTable(table, trees, checkDis, tv, cs);
-	document.getElementById('tableHasil').innerHTML = htmltable;
 
+	document.getElementById('tableHasil').innerHTML = htmltable;
 	var mcCells = document.querySelectorAll('td.mc');
 	var mcValues = Array.from(mcCells).map(cell => cell.textContent.trim() === 'T'); // Extract truth values from mc cells
 	var allTrueAlt = mcValues.every(value => value); // Check if all values in mc cells are true
 	var allFalseAlt = mcValues.every(value => !value); // Check if all values in mc cells are false
+	
+	var mcValuesangka = Array.from(mcCells).map(cell => cell.textContent.trim() === '1'); // Extract truth values from mc cells
+	var allTrueAltangka = mcValuesangka.every(value => value); // Check if all values in mc cells are true
+	var allFalseAltangka = mcValuesangka.every(value => !value); // Check if all values in mc cells are false
 
 	// Determine the result
-	if (allTrueAlt) {
+	if (allTrueAlt || allTrueAltangka) {
 		document.getElementById("tessMessage").textContent = "Tautology";
-	} else if (allFalseAlt) {
+		document.getElementById("outputSoal").value = "Tautology";
+	} else if (allFalseAlt||allFalseAltangka) {
 		document.getElementById("tessMessage").textContent = "Contradiction";
+		document.getElementById("outputSoal").value = "Contradiction";
 	} else {
 		document.getElementById("tessMessage").textContent = "Contingency";
+		document.getElementById("outputSoal").value = "Contingency";
 	}
 
 	document.getElementById("outputsTable").style.display = "flex";
@@ -489,7 +499,7 @@ function isB(s) {
 // String -> Int
 // Checks if the string contains any inadmissible characters
 function badchar(s) {
-	var x = ',()|!#ABCDE FGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuwxyz';
+	var x = ' ,()|!#ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuwxyz';
 	for (var i = 0; i < s.length; i++) {
 		if (x.indexOf(s[i]) < 0) {
 			return i;

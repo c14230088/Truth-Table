@@ -56,8 +56,8 @@ body {
     margin: 1px;
 }
 .mc{
-    color: red;
-    background-color: blue;
+    color: rgb(253, 135, 135);
+    background-color: hsl(208, 73%, 45%);
 }
 .dv{
     color: blue;
@@ -147,15 +147,15 @@ body {
 }
 
 #messages {
-    background-color: red;
-    width: 15vw;
+    background-color: hsla(207, 81%, 81%, 0.658);
+    width: 19vw;
     height: 78vh;    
     margin: 6px;
 }
 
 #tabelKebenaran {
-    background-color: green;
-    width: 82svw;
+    background-color: hsla(207, 81%, 81%, 0.658);
+    width: 78svw;
     height: 78svh;
     overflow-x:auto;
     margin: 6px;
@@ -200,3 +200,9 @@ td{
     background-color: black;
     color: white;
 }
+#tessTable{
+    width: auto;
+    background-color: hsla(0, 3%, 14%, 0.753);
+    color: hsla(39, 77%, 83%, 0.863);
+    box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.5);}
+

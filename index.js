@@ -84,9 +84,9 @@ function construct() {
 	if (formulas == '') { 
 		document.getElementById("outputsTable").style.display = "none";
 		return alert("Ekspresi Logika Tidak Boleh Kosong"); };
-	// if(formulas.length<30){return alert("Formula Kurang dari 30 Characters");}
+	if(formulas.length<30){return alert("Formula Kurang! Harus lebih dari 30 Characters");}
 	var r = badchar(formulas);
-	if (r >= 0) { return alert("The string you entered contains the following unrecognized symbol: " + formulas[r]); };
+	if (r >= 0) { return alert("Ups!, Input Character Tidak ditemukan: " + formulas[r]); };
 
 	formulas = formulas.split(','); // create an array of formulas
 	var trees = formulas.map(parse); // create an array of parse trees

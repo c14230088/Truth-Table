@@ -12,7 +12,7 @@
     <div id="uiKalkulator">
         <div id="kotak1" class="kotak">
             <label for="inputSoal">input&nbsp;&nbsp;&nbsp;: </label>
-            <input id="inputSoal" minlength="30" placeholder="Masukkan Soal">
+            <input id="inputSoal" oninput="gantiSymbol()" minlength="30" placeholder="Masukkan Soal">
         </div>
 
         <div id="kotak2" class="kotak">
@@ -40,11 +40,11 @@
 </div>
         <div id="buttons">
             <button id="clear" onclick="masukkanKeInput('clear')">C</button>
-            <button id="negasi" onclick="masukkanKeInput('n')"> n</button> <!-- negasi -->
-            <button id="konjungsi" onclick="masukkanKeInput('a')"> a</button> <!-- a ATAU q -> konjungsi (?) -->
-            <button id="disjungsi" onclick="masukkanKeInput('o')"> o</button> <!-- disjungsi (?) -->
-            <button id="implikasi" onclick="masukkanKeInput('i')"> i</button> <!-- implikasi -->
-            <button id="biimplikasi" onclick="masukkanKeInput('b')"> b</button> <!-- biimplikasi -->
+            <button id="negasi" onclick="masukkanKeInput('¬')">¬</button> <!-- negasi -->
+            <button id="konjungsi" onclick="masukkanKeInput('^')"> ^</button> <!-- a ATAU q -> konjungsi (?) -->
+            <button id="disjungsi" onclick="masukkanKeInput('v')"> v</button> <!-- disjungsi (?) -->
+            <button id="implikasi" onclick="masukkanKeInput('→')"> →</button> <!-- implikasi -->
+            <button id="biimplikasi" onclick="masukkanKeInput('↔')"> ↔</button> <!-- biimplikasi -->
             <button id="trues" value="tf" onclick="trueMode()">t&#8594;1</button>
             <button id="hapusKiri" onclick="masukkanKeInput('hapus')">D</button>
             
@@ -54,7 +54,7 @@
             <button id="var1" onclick="masukkanKeInput('T')"> 1</button>
             <button id="kurungBuka" onclick="masukkanKeInput('(')"> (</button>
             <button id="kurungTutup" onclick="masukkanKeInput(')')"> )</button>
-            <button id="display" value="false" onclick="displayMode()">V</button>
+            <button id="display" value="false" onclick="displayMode()">MT</button>
             <button id="submit" class="submit" onclick="construct()">E</button>
 
         </div>

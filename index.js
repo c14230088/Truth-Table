@@ -1,4 +1,5 @@
 let ketikan = document.getElementById("inputSoal");
+let copyKetikan = "";
 
 window.addEventListener("keypress", function (event) { //tekan enter untuk cek Kebenaran
 	if (event.key === "Enter") {
@@ -6,7 +7,26 @@ window.addEventListener("keypress", function (event) { //tekan enter untuk cek K
 		construct();
 	}
 });
-
+function gantiSymbol(){
+	copyKetikan = ketikan.value;
+	for(let i = 0; i<copyKetikan.length;i++){
+		if(copyKetikan.indexOf('→')>=0){
+			copyKetikan = copyKetikan.replace(copyKetikan.charAt(copyKetikan.indexOf('→')),'i');
+		}
+		if(copyKetikan.indexOf('↔')>=0){
+			copyKetikan = copyKetikan.replace(copyKetikan.charAt(copyKetikan.indexOf('↔')),'b');
+		}
+		if(copyKetikan.indexOf('v')>=0){
+			copyKetikan = copyKetikan.replace(copyKetikan.charAt(copyKetikan.indexOf('v')),'o');
+		}
+		if(copyKetikan.indexOf('^')>=0){
+			copyKetikan = copyKetikan.replace(copyKetikan.charAt(copyKetikan.indexOf('^')),'a');
+		}
+		if(copyKetikan.indexOf('¬')>=0){
+			copyKetikan = copyKetikan.replace(copyKetikan.charAt(copyKetikan.indexOf('¬')),'n');
+		}
+	}
+}
 function masukkanKeInput(input) {
 	if (input == "hapus") {
 		ketikan.value = ketikan.value.slice(0, -1);
@@ -18,6 +38,26 @@ function masukkanKeInput(input) {
 	else {
 		ketikan.value += input;
 	}
+	copyKetikan = ketikan.value;
+	for(let i = 0; i<copyKetikan.length;i++){
+		if(copyKetikan.indexOf('→')>=0){
+			copyKetikan = copyKetikan.replace(copyKetikan.charAt(copyKetikan.indexOf('→')),'i');
+		}
+		if(copyKetikan.indexOf('↔')>=0){
+			copyKetikan = copyKetikan.replace(copyKetikan.charAt(copyKetikan.indexOf('↔')),'b');
+		}
+		if(copyKetikan.indexOf('v')>=0){
+			copyKetikan = copyKetikan.replace(copyKetikan.charAt(copyKetikan.indexOf('v')),'o');
+		}
+		if(copyKetikan.indexOf('^')>=0){
+			copyKetikan = copyKetikan.replace(copyKetikan.charAt(copyKetikan.indexOf('^')),'a');
+		}
+		if(copyKetikan.indexOf('¬')>=0){
+			copyKetikan = copyKetikan.replace(copyKetikan.charAt(copyKetikan.indexOf('¬')),'n');
+		}
+	}
+	console.log(ketikan.value)
+	console.log(copyKetikan)
 };
 
 function displayMode() {
@@ -60,6 +100,7 @@ function htmlchar(c, tv, cs) {
 			}
 		case 'o': return '&or;';
 		case 'i':
+		// case '→':
 			switch (cs) {
 				case 'cs3': return '&sup;';
 				default: return '&rarr;';
@@ -80,7 +121,7 @@ function htmlchar(c, tv, cs) {
 
 // main construction function
 function construct() {
-	var formulas = document.getElementById('inputSoal').value.replace(/ /g, '');// remove whitespace
+	var formulas = copyKetikan.replace(/ /g, '');// remove whitespace
 	if (formulas == '') { 
 		document.getElementById("outputsTable").style.display = "none";
 		return alert("Ekspresi Logika Tidak Boleh Kosong"); };
@@ -494,7 +535,7 @@ function gSub(s) {
 // takes a string and determines if it begins with a binary connective.  If so, returns
 // the length of the connective, otherwise returns 0.
 function isB(s) {
-	var bc = ['a', 'o', 'i', 'b', '|', '!']; // | tuk NAND, ! tuk NOR
+	var bc = ['a', 'o', 'i', 'b', '|', '!'	]; // | tuk NAND, ! tuk NOR
 	for (var i = 0; i < bc.length; i++) {
 		if (s.indexOf(bc[i]) == 0) {
 			return bc[i].length;

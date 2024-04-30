@@ -84,7 +84,7 @@ function construct() {
 	if (formulas == '') { 
 		document.getElementById("outputsTable").style.display = "none";
 		return alert("Ekspresi Logika Tidak Boleh Kosong"); };
-	if(formulas.length<30){return alert("Formula Kurang! Harus lebih dari 30 Characters");}
+	// if(formulas.length<30){return alert("Formula Kurang! Harus lebih dari 30 Characters");}
 	var r = badchar(formulas);
 	if (r >= 0) { return alert("Ups!, Input Character Tidak ditemukan: " + formulas[r]); };
 
@@ -114,19 +114,26 @@ function construct() {
 
 	document.getElementById('tableHasil').innerHTML = htmltable;
 	var mcCells = document.querySelectorAll('td.mc');
+	
+	if(document.getElementById('trues').value === 'tf'){
 	var mcValues = Array.from(mcCells).map(cell => cell.textContent.trim() === 'T'); // Extract truth values from mc cells
 	var allTrueAlt = mcValues.every(value => value); // Check if all values in mc cells are true
 	var allFalseAlt = mcValues.every(value => !value); // Check if all values in mc cells are false
-	
-	var mcValuesangka = Array.from(mcCells).map(cell => cell.textContent.trim() === '1'); // Extract truth values from mc cells
-	var allTrueAltangka = mcValuesangka.every(value => value); // Check if all values in mc cells are true
-	var allFalseAltangka = mcValuesangka.every(value => !value); // Check if all values in mc cells are false
+	}
+	else{
+	var mcValuesAngka = Array.from(mcCells).map(cell => cell.textContent.trim() === '1'); // Extract truth values from mc cells
+	var allTrueAltAngka = mcValuesAngka.every(value => value); // Check if all values in mc cells are true
+	var allFalseAltangka = mcValuesAngka.every(value => !value); // Check if all values in mc cells are false
+	}
+	// var mcValuesangka = Array.from(mcCells).map(cell => cell.textContent.trim() === '1'); // Extract truth values from mc cells
+	// var allTrueAltangka = mcValuesangka.every(value => value); // Check if all values in mc cells are true
+	// var allFalseAltangka = mcValuesangka.every(value => !value); // Check if all values in mc cells are false
 
 	// Determine the result
-	if (allTrueAlt || allTrueAltangka) {
+	if (allTrueAlt || allTrueAltAngka) {
 		document.getElementById("tessMessage").textContent = "Tautology";
 		document.getElementById("outputSoal").value = "Tautology";
-	} else if (allFalseAlt||allFalseAltangka) {
+	} else if (allFalseAlt || allFalseAltangka) {
 		document.getElementById("tessMessage").textContent = "Contradiction";
 		document.getElementById("outputSoal").value = "Contradiction";
 	} else {
